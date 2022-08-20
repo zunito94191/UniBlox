@@ -20,11 +20,13 @@ const ProductWindow = ({product,addToCart,count}) =>{
         _hover={{ shadow: "dark-lg" }}
       >
         <Image
+          mt="3rem"
           h="350px"
           fit="cover"
           src={product.image}
           alt={`Picture of ${product.name}`}
           roundedTop="lg"
+          rounded="lg"
         />
 
         <Box p="6">
@@ -34,10 +36,12 @@ const ProductWindow = ({product,addToCart,count}) =>{
             alignContent="center"
           >
             <Text
-              fontSize="2xl"
+              fontSize="xl"
               fontWeight="semibold"
               as="h4"
-              textTransform="uppercase"
+              height="5rem"
+              textAlign="left"
+              // textTransform="uppercase"
               lineHeight="tight"
               fontFamily="Roboto"
             >
@@ -45,7 +49,7 @@ const ProductWindow = ({product,addToCart,count}) =>{
             </Text>
             <Text
               as="h4"
-              fontSize="2xl"
+              fontSize="xl"
               fontWeight="bold"
               color="teal.600"
             >
@@ -56,6 +60,7 @@ const ProductWindow = ({product,addToCart,count}) =>{
           <Text
             mt={2}
             color="gray.500"
+            height="15rem"
             display={{ base: "none", md: "flex" }}
           >
             {product.description}

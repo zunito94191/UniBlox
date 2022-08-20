@@ -20,7 +20,7 @@ import {useRef,useContext} from 'react';
 import {BiRightArrowAlt} from "react-icons/bi"
 import { CartBody } from "./FilledCart";
 import { ProductContext } from '../App';
-
+import Coupon from "./Coupon";
   const ViewCart = () =>{
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
@@ -71,7 +71,7 @@ import { ProductContext } from '../App';
         Your order qualifies for <span style={{fontWeight:"bold",marginLeft:"0.3rem"}}>discount coupon</span>
         </Center>
         <Center>
-      {cart.count.current<9?<span>Add {9-cart.count.current} items to avail<span style={{fontWeight:"bold",marginLeft:"0.3rem"}}>10% discount</span></span>:<span></span>}
+      {cart.count.current<9?<span>Add {9-cart.count.current} items to avail<span style={{fontWeight:"bold",marginLeft:"0.3rem"}}>10% discount</span></span>:<Coupon></Coupon>}
       </Center>
       </Flex>
       </DrawerHeader></Box>      

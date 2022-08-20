@@ -1,10 +1,14 @@
 import {
     Text,
     Flex,
+    Img,
   } from "@chakra-ui/react";
+import logo from "../assets/images/logo.svg";
 import ViewCart from "./ViewCart";
 const NavBar =() =>{
     return (<Flex justifyContent="space-between" alignContent="center">
+    <Flex align="center">
+      <Img src={logo} boxSize="3rem" mr="2rem"></Img>
     <Text
       as="a"
       href="/"
@@ -13,8 +17,9 @@ const NavBar =() =>{
       fontFamily="Robo"
       my="5px"
     >
-      Shoes Sales
+      UniBlox
     </Text>
+    </Flex>
     <ViewCart/>
   </Flex>
 )

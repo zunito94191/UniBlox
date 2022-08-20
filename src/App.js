@@ -61,7 +61,7 @@ function App() {
     "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c57e880f-e7aa-47b6-b7e4-97be9fe234cb/air-jordan-5-retro-low-psg-shoes-bpsqMw.png",
   "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/55c063d1-be3e-4ce7-80c3-29fe9268886a/air-jordan-5-retro-low-psg-shoes-bpsqMw.png",
 "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/f21eb70c-2319-48c9-9d78-cd46259cfa7c/air-jordan-5-retro-low-psg-shoes-bpsqMw.png"],
-          name:"Air Jordan 5 Retro Low PSG",
+          name:"Air Jordan 5 Retro",
           url:"/",
           description:"Jordan and Paris Saint-Germain come together again, this time with an update to the AJ5. This low-top pair looks fresh while featuring the best elements from the original, like lace toggles, rich leather and the iconic WWII Mustang fighter plane-inspired graphic. The stamped PSG logo on the heel subtly reps your favourite club.",
           price:18395,
@@ -79,7 +79,7 @@ function App() {
           name:"Nike Zoom Metcon Turbo 2",
           price:13995,
           inCart:false,
-          description:"The Nike Zoom Metcon Turbo 2 puts a shot of adrenalizing speed into your everyday workout. It combines stability and responsiveness in a lightweight package to help you move quickly during circuit training, high-intensity intervals on the treadmill, a cardio workout you've squeezed in on the way home—whatever you choose. From the Zoom Air cushioning underfoot to the rope wrap at the instep, every detail is pared down to minimise weight while maximising function and durability. Lighter, stronger materials are built for speed and strength."
+          description:"The Nike Zoom Metcon Turbo 2 puts a shot of adrenalizing speed into your everyday workout. It combines stability and responsiveness in a lightweight package to help you move quickly during circuit training, high-intensity intervals on the treadmill, a cardio workout you've squeezed in on the way home—whatever you choose."
         },{
           id:6,
           image:"https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c7a66d26-e3be-4035-b956-e1385c9a7450/offcourt-slides-ZBxx9j.png",
@@ -94,16 +94,17 @@ function App() {
   ]);
   const [cart, setCart] = useState([]);
   const count = useRef(0);
-  const totalPrice = useRef(0);
-
+  const [totalPrice,setTotalPrice] = useState(0);
+  // const allCoupons  = useRef([{id:1,criteria:""}]);
+  // const [coupon,setCoupon] = useState([]);
 const addToCart =(id,increment)=>{
     const newItem = products.filter((product)=>product.id===id)
     if(increment){
       count.current++
-      totalPrice.current +=newItem[0].price
+      setTotalPrice((totalPrice)=>totalPrice +=newItem[0].price)
     }
     else {
-      totalPrice.current -=newItem[0].price
+      setTotalPrice((totalPrice)=>totalPrice -=newItem[0].price)
       count.current--
     }
 
@@ -158,7 +159,7 @@ const addToCart =(id,increment)=>{
   return (
     
     <Container maxW="container.xl" h="100vh" >
-      <ProductContext.Provider value={{cart,addToCart,count,totalPrice: totalPrice.current}}>
+      <ProductContext.Provider value={{cart,addToCart,count,totalPrice,setTotalPrice}}>
       <NavBar/>
       </ProductContext.Provider>
       <Box mt={4}>
