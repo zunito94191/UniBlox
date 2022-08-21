@@ -52,7 +52,7 @@ const storeValue={cart,addToCart,count,totalPrice,setTotalPrice,removeFromCart,i
     <Container maxW="container.xl" h="100vh" >
       <ProductContext.Provider value={storeValue}>
       <NavBar/>
-      </ProductContext.Provider>
+      
       <Box mt={4}>
         <SimpleGrid
           minChildWidth="300px"
@@ -60,10 +60,11 @@ const storeValue={cart,addToCart,count,totalPrice,setTotalPrice,removeFromCart,i
           justify="center"
           spacing="40px"
           mb={32}>
-          {products.map((product) => (<ProductWindow key={product.id} product={product} addToCart={addToCart} />
+          {products.map((product) => (<ProductWindow key={product.id} product={product}/>
             ))}
         </SimpleGrid>
       </Box>
+      </ProductContext.Provider>
     </Container>
   );
 }

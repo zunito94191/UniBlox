@@ -8,9 +8,13 @@ import {
     IconButton,
     Spacer
   } from "@chakra-ui/react";
+import {useContext} from "react";
 import {FiShoppingCart} from "react-icons/fi";
 import {AiOutlinePlus,AiOutlineMinus} from "react-icons/ai"
-const ProductWindow = ({product,addToCart,count,removeFromCart}) =>{
+import { ProductContext } from "../HomePage";
+
+const ProductWindow = ({product}) =>{
+  const cart = useContext(ProductContext);
     return (<Box
         bg="white"
         maxW="sm"
@@ -65,10 +69,10 @@ const ProductWindow = ({product,addToCart,count,removeFromCart}) =>{
           >
             {product.description}
           </Text>
-        {product.inCart?<ButtonGroup size="lg" border="1px" px="3rem" isAttached width="100%" color="blue.500" borderRadius="md" mt={4}><Spacer/>
-        <IconButton border="0px" aria-label='Add to friends' fontSize="0.5rem" backgroundColor="transparent" onClick={()=>removeFromCart(product)} icon={<AiOutlineMinus/>} />
+        {product.count!==0?<ButtonGroup size="lg" border="1px" px="3rem" isAttached width="100%" color="blue.500" borderRadius="md" mt={4}><Spacer/>
+        <IconButton border="0px" aria-label='Add to friends' fontSize="0.5rem" backgroundColor="transparent" onClick={()=>cart.removeFromCart(product)} icon={<AiOutlineMinus/>} />
         <Box alignSelf="center" px="1.5rem" fontSize="0.8rem" fontWeight="bold">{product.count}</Box>
-        <IconButton border="0px" aria-label='Add to friends' fontSize="0.5rem" backgroundColor="transparent" onClick={()=>addToCart(product)} icon={<AiOutlinePlus/>} />
+        <IconButton border="0px" aria-label='Add to friends' fontSize="0.5rem" backgroundColor="transparent" onClick={()=>cart.addToCart(product)} icon={<AiOutlinePlus/>} />
         <Spacer/>
         </ButtonGroup>:<Button
             leftIcon={<FiShoppingCart size="24px" />}
@@ -78,7 +82,7 @@ const ProductWindow = ({product,addToCart,count,removeFromCart}) =>{
             colorScheme="blue"
             variant="outline"
             alignSelf={"center"}
-            onClick={()=>addToCart(product)}
+            onClick={()=>cart.addToCart(product)}
           >
             Add To Cart
           </Button>}

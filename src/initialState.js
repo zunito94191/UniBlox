@@ -12,7 +12,6 @@ export const productInitial=[
      url:"/",
      description:"Bringing a new look to the Waffle franchise, the Nike Waffle One balances everything you love about heritage Nike running with fresh innovation. A plastic heel clip brings energy while a mixture of transparent mesh and retro suede add texture and depth. The Waffle outsole provides a level of support and traction you have to feel to believe.",
      price:9965,
-     inCart:false,
      count:0
    },
      {id:2,
@@ -27,7 +26,6 @@ export const productInitial=[
        url:"/",
        description:"Heat up the streets in the Nike Air Max Koko Sandals. With a Max Air unit in the heel, this fun platform sandal is deceptively comfortable. A thick, layered foam midsole helps provide a smooth and flexible ride while premium cord lace details on the upper lend a playful, sporty edge to your look.",
        price:9195,
-       inCart:false,
        count:0
      },
        {id:3,
@@ -42,7 +40,6 @@ export const productInitial=[
          url:"/",
          description:"Created for the hardwood but taken to the streets, the '80s b-ball icon returns with classic details and throwback hoops flair. Channelling vintage style back onto the streets, it ups your ante with a padded, high-top collar, so you can take your game anywhere—in comfort.",
          price:10795,
-         inCart:false,
          count:0
        },
          {id:4,
@@ -57,7 +54,6 @@ export const productInitial=[
            url:"/",
            description:"Jordan and Paris Saint-Germain come together again, this time with an update to the AJ5. This low-top pair looks fresh while featuring the best elements from the original, like lace toggles, rich leather and the iconic WWII Mustang fighter plane-inspired graphic. The stamped PSG logo on the heel subtly reps your favourite club.",
            price:18395,
-           inCart:false,
            count:0
          },
          {
@@ -71,7 +67,6 @@ export const productInitial=[
  "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/8c957f93-4e02-4889-b341-544f0c1a677a/zoom-metcon-turbo-2-training-shoes-jPvmwl.png"],
            name:"Nike Zoom Metcon Turbo 2",
            price:13995,
-           inCart:false,
            count:0,
            description:"The Nike Zoom Metcon Turbo 2 puts a shot of adrenalizing speed into your everyday workout. It combines stability and responsiveness in a lightweight package to help you move quickly during circuit training, high-intensity intervals on the treadmill, a cardio workout you've squeezed in on the way home—whatever you choose."
          },{
