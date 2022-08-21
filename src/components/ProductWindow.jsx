@@ -10,7 +10,7 @@ import {
   } from "@chakra-ui/react";
 import {FiShoppingCart} from "react-icons/fi";
 import {AiOutlinePlus,AiOutlineMinus} from "react-icons/ai"
-const ProductWindow = ({product,addToCart,count}) =>{
+const ProductWindow = ({product,addToCart,count,removeFromCart}) =>{
     return (<Box
         bg="white"
         maxW="sm"
@@ -66,9 +66,9 @@ const ProductWindow = ({product,addToCart,count}) =>{
             {product.description}
           </Text>
         {product.inCart?<ButtonGroup size="lg" border="1px" px="3rem" isAttached width="100%" color="blue.500" borderRadius="md" mt={4}><Spacer/>
-        <IconButton border="0px" aria-label='Add to friends' fontSize="0.5rem" backgroundColor="transparent" onClick={()=>addToCart(product.id,false)} icon={<AiOutlineMinus/>} />
+        <IconButton border="0px" aria-label='Add to friends' fontSize="0.5rem" backgroundColor="transparent" onClick={()=>removeFromCart(product)} icon={<AiOutlineMinus/>} />
         <Box alignSelf="center" px="1.5rem" fontSize="0.8rem" fontWeight="bold">{product.count}</Box>
-        <IconButton border="0px" aria-label='Add to friends' fontSize="0.5rem" backgroundColor="transparent" onClick={()=>addToCart(product.id,true)} icon={<AiOutlinePlus/>} />
+        <IconButton border="0px" aria-label='Add to friends' fontSize="0.5rem" backgroundColor="transparent" onClick={()=>addToCart(product)} icon={<AiOutlinePlus/>} />
         <Spacer/>
         </ButtonGroup>:<Button
             leftIcon={<FiShoppingCart size="24px" />}
@@ -78,7 +78,7 @@ const ProductWindow = ({product,addToCart,count}) =>{
             colorScheme="blue"
             variant="outline"
             alignSelf={"center"}
-            onClick={()=>addToCart(product.id,true)}
+            onClick={()=>addToCart(product)}
           >
             Add To Cart
           </Button>}

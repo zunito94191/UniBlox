@@ -15,11 +15,11 @@ import {
     HStack
   } from '@chakra-ui/react'
 import { FiShoppingBag } from "react-icons/fi";
-import {EmptyFooter} from './EmptyCart';
+import {EmptyBody, EmptyFooter} from './EmptyCart';
 import {useRef,useContext} from 'react'; 
 import {BiRightArrowAlt} from "react-icons/bi"
-import { CartBody } from "./FilledCart";
-import { ProductContext } from '../App';
+import { CartBody, CartFooter } from "./FilledCart";
+import { ProductContext } from '../HomePage';
 import Coupon from "./Coupon";
   const ViewCart = () =>{
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -39,7 +39,7 @@ import Coupon from "./Coupon";
       onClick={onOpen}
     >
       <HStack>
-      <Circle position="absolute" margin="-1rem" top="1.5rem" left="2.3rem" bg="pink" color="black" py="0.3rem" px="0.4rem"> <Text m="0px" p="0px" fontSize="8px">{cart.count.current}</Text></Circle>
+      <Circle position="absolute" margin="-1rem" top="1.5rem" left="2.3rem" bg="pink" color="black" py="0.3rem" px="0.4rem"> <Text m="0px" p="0px" fontSize="8px">{cart.count}</Text></Circle>
       </HStack>
       View Cart
     </Button>
@@ -64,21 +64,21 @@ import Coupon from "./Coupon";
     >
       My Bag
     </Text><Spacer/><Box alignSelf="center" position="relative"><HStack>
-      <Circle position="absolute" margin="-1rem" top="0.6rem" left="1.9rem" bg="pink" color="black" py="0.3rem" px="0.4rem"> <Text m="0px" p="0px" fontSize="8px">{cart.count.current}</Text></Circle>
+      <Circle position="absolute" margin="-1rem" top="0.6rem" left="1.9rem" bg="pink" color="black" py="0.3rem" px="0.4rem"> <Text m="0px" p="0px" fontSize="8px">{cart.count}</Text></Circle>
       </HStack><FiShoppingBag size="24px" color='black'/></Box></Flex>
       <Flex direction="column" color="black" fontFamily="Founders Grotesk" fontSize="1rem" fontWeight="normal">
           <Center>
         Your order qualifies for <span style={{fontWeight:"bold",marginLeft:"0.3rem"}}>discount coupon</span>
         </Center>
         <Center>
-      {cart.count.current<9?<span>Add {9-cart.count.current} items to avail<span style={{fontWeight:"bold",marginLeft:"0.3rem"}}>10% discount</span></span>:<Coupon></Coupon>}
+      {cart.count<9?<span>Add {9-cart.count} items to avail<span style={{fontWeight:"bold",marginLeft:"0.3rem"}}>10% discount</span></span>:cart.isApplied?"Discount Applied":<Coupon></Coupon>}
       </Center>
       </Flex>
       </DrawerHeader></Box>      
             <DrawerBody>
-            <CartBody cart={cart} addToCart={cart.addToCart}/>
+            {cart.count===0?<EmptyBody onClick={onClose}/>:<CartBody/>}
             </DrawerBody>
-            <EmptyFooter count={cart.count} totalPrice={cart.totalPrice}/>
+            {cart.count===0?(<EmptyFooter />):<CartFooter/>}
           </DrawerContent>
         </Drawer>
       </>
