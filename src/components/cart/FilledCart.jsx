@@ -10,7 +10,7 @@ import {
 import {AiTwotoneLock} from "react-icons/ai"
 import { ItemCart } from "./ItemCart";
 import {useContext} from "react";
-import { ProductContext } from "../HomePage";
+import { ProductContext } from "../../HomePage";
 export const CartBody =() =>{
     const cart = useContext(ProductContext)
     return(<>{cart.cart.map((kart) =><ItemCart key={kart.id} cart={kart} addToCart={cart.addToCart} removeFromCart={cart.removeFromCart}/>)}</>)

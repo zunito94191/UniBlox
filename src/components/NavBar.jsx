@@ -4,7 +4,7 @@ import {
     Img,
   } from "@chakra-ui/react";
 import logo from "../assets/images/logo.svg";
-import ViewCart from "./ViewCart";
+import ViewCart from "./cart/ViewCart";
 const NavBar =() =>{
     return (<Flex justifyContent="space-between" alignContent="center">
     <Flex align="center">

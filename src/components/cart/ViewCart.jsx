@@ -19,8 +19,8 @@ import {EmptyBody, EmptyFooter} from './EmptyCart';
 import {useRef,useContext} from 'react'; 
 import {BiRightArrowAlt} from "react-icons/bi"
 import { CartBody, CartFooter } from "./FilledCart";
-import { ProductContext } from '../HomePage';
-import Coupon from "./Coupon";
+import { ProductContext } from '../../HomePage';
+import Coupon from "../Coupon";
   const ViewCart = () =>{
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
